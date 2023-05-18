@@ -33,3 +33,10 @@ func DBInstance() *mongo.Client{
 	}
 	fmt.Println("Connected to mongDB")
 }
+
+var client *mongo.client = DBInstance()
+
+func Opencollection(client *mongo.Client, collectionName string) *mongo.Collection{
+	var collection *mongo.Collection = client.Database("Cluster0").Collection(collectionName)
+	return collection
+}
